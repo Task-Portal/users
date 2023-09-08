@@ -1,0 +1,4 @@
+.env
+.env.dev
+plan.txt
+node_modules
