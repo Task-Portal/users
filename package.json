@@ -6,7 +6,6 @@
   "scripts": {
     "dev": "NODE_ENV=dev nodemon src/index.js",
     "start": "NODE_ENV=prod nodemon src/index.js",
-    "genPost": "npx apidoc-postman -i src/api/ -o postman/",
     "insertPositions": "node  -r dotenv/config src/database/seeders/insertPosition.js",
     "insertUsers": "node  -r dotenv/config src/database/seeders/insertUsers.js",
     "dataInsert": "node  -r dotenv/config src/database/seeders/insertPosition.js && node  -r dotenv/config src/database/seeders/insertUsers.js"
@@ -15,8 +14,6 @@
   "license": "ISC",
   "dependencies": {
     "@aws-sdk/client-s3": "^3.405.0",
-    "@panz3r/apidoc-postman": "^2.1.0",
-    "apidoc": "^1.2.0",
     "bcryptjs": "^2.4.3",
     "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
@@ -29,7 +26,6 @@
     "pg": "^8.11.3",
     "pg-hstore": "^2.3.4",
     "sequelize": "^6.32.1",
-    "sharp": "^0.32.5",
     "tinify": "^1.7.1"
   },
   "devDependencies": {
