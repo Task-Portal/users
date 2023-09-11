@@ -21,6 +21,8 @@ const formidable = require("formidable");
 const tinify = require("tinify");
 tinify.key = API_KEY_TINIFY;
 
+const sharp = require("sharp");
+
 const FILE_SIZE = 5;
 const CROP_WIDTH = 70;
 const CROP_HEIGHT = 70;
@@ -202,7 +204,8 @@ class UserService {
 
     // cropping image
     // optimized using the tinypng.com
-    const resized = await this.CroppingImage(files.photo[0].filepath);
+    // const resized = await this.CroppingImage(files.photo[0].filepath);
+    const resized = await this.CroppingImageBySharp(files.photo[0].filepath)
 
     //saving image to AMZ
     const imageUrl = await this.SaveImageToAws(resized);
@@ -284,6 +287,13 @@ class UserService {
         user_id: ["User not found"],
       },
     };
+  }
+
+  async CroppingImageBySharp(filePath) {
+    // Read the input image
+    return await sharp(filePath)
+      .resize({ CROP_WIDTH, CROP_HEIGHT, fit: "cover" }) // Crop to the specified dimensions
+      .toBuffer();
   }
 }
 
