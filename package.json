@@ -5,7 +5,7 @@
   "main": "src/index.js",
   "scripts": {
     "dev": "NODE_ENV=dev nodemon src/index.js",
-    "start": "NODE_ENV=prod nodemon src/index.js",
+    "start": "NODE_ENV=prod node src/index.js",
     "insertPositions": "node  -r dotenv/config src/database/seeders/insertPosition.js",
     "insertUsers": "node  -r dotenv/config src/database/seeders/insertUsers.js",
     "dataInsert": "node  -r dotenv/config src/database/seeders/insertPosition.js && node  -r dotenv/config src/database/seeders/insertUsers.js"
